@@ -7,11 +7,10 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 border border-cream flex items-center justify-center">
-                <span className="font-serif italic text-sm">CB</span>
-              </div>
-              <span className="font-serif font-bold text-lg tracking-tight">CANAAN</span>
+            <div className="flex items-center mb-6">
+              <Link to="/">
+                <img src="/logo.jpg" alt="Canaan Business House" className="h-12 w-auto object-contain bg-cream/90 p-2 rounded-sm" />
+              </Link>
             </div>
             <p className="font-sans text-sm text-cream/60 leading-relaxed mb-6">
               Strategic Advisory for Sustainable Growth. We partner with leaders to build financially sound, scalable, and impact-driven organisations.

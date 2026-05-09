@@ -4,16 +4,8 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Logo = () => (
-  <Link to="/" className="flex items-center gap-3 group">
-    <div className="relative w-10 h-10 border-2 border-ink flex items-center justify-center overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-1 bg-ink -translate-y-1 group-hover:translate-y-0 transition-transform duration-300" />
-      <span className="font-serif font-bold text-xl text-forest italic leading-none relative z-10">CB</span>
-      <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-forest rotate-45" />
-    </div>
-    <div className="flex flex-col">
-      <span className="font-serif font-bold text-lg tracking-tight leading-none uppercase">Canaan</span>
-      <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-forest font-semibold">Business House</span>
-    </div>
+  <Link to="/" className="flex items-center group">
+    <img src="/logo.jpg" alt="Canaan Business House" className="h-16 w-auto object-contain" />
   </Link>
 );
 
@@ -31,7 +23,7 @@ export const Header = () => {
   const navLinks = [
     { name: "Services", path: "/services" },
     { name: "About", path: "/about" },
-    { name: "Articles", path: "/articles" },
+    { name: "Insights", path: "/insights" },
     { name: "Team", path: "/team" },
     { name: "Contact", path: "/contact" },
   ];

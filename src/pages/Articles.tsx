@@ -28,7 +28,7 @@ export const Articles = () => {
                 transition={{ delay: i * 0.1 }}
                 className="group"
               >
-                <Link to={`/articles/${article.id}`} className="block">
+                <Link to={`/insights/${article.id}`} className="block">
                   <div className="aspect-video overflow-hidden mb-8 border border-ink/5">
                     <img 
                       src={article.img} 
@@ -63,13 +63,18 @@ export const Articles = () => {
             <p className="text-cream/60 mb-12 max-w-lg mx-auto font-light">
               Receive curated insights on finance, business strategy, ESG, and growth—delivered directly to your inbox.
             </p>
-            <form className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto" onSubmit={(e) => e.preventDefault()}>
+               <input 
+                type="text" 
+                placeholder="Full Name" 
+                className="flex-1 bg-cream/10 border border-cream/10 p-4 focus:border-forest outline-none transition-colors text-cream"
+              />
                <input 
                 type="email" 
                 placeholder="Email Address" 
                 className="flex-1 bg-cream/10 border border-cream/10 p-4 focus:border-forest outline-none transition-colors text-cream"
               />
-               <button type="submit" className="bg-cream text-ink px-10 py-4 font-bold uppercase tracking-widest hover:bg-forest hover:text-cream transition-all">
+               <button type="submit" className="bg-cream text-ink px-10 py-4 font-bold uppercase tracking-widest hover:bg-forest hover:text-cream transition-all whitespace-nowrap">
                   Subscribe
                </button>
             </form>

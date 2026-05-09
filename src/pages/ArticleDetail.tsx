@@ -8,17 +8,17 @@ export const ArticleDetail = () => {
   const article = articles.find(a => a.id === id);
 
   if (!article) {
-    return <Navigate to="/articles" replace />;
+    return <Navigate to="/insights" replace />;
   }
 
   return (
     <div className="pt-32 pb-20">
       <article className="max-w-4xl mx-auto px-6">
         <Link 
-          to="/articles" 
+          to="/insights" 
           className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-muted hover:text-forest transition-colors mb-12"
         >
-          <ArrowLeft size={16} /> Back to Articles
+          <ArrowLeft size={16} /> Back to Insights
         </Link>
         
         <motion.div
