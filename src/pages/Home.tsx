@@ -56,6 +56,10 @@ export const Home = () => {
                 Our Services
               </Link>
             </div>
+            <div className="mt-8 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-ink/80 bg-ink/5 w-fit px-4 py-2 rounded-sm border border-ink/10">
+              <Shield size={14} className="text-forest" />
+              Level 1 B-BBEE Contributor
+            </div>
           </motion.div>
 
           <motion.div
@@ -158,10 +162,14 @@ export const Home = () => {
                     />
                     <div className="absolute inset-0 bg-forest/20 mix-blend-overlay" />
                 </div>
-                <div className="mt-12 grid grid-cols-2 gap-8 text-center border-t border-ink/10 pt-12">
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center border-t border-ink/10 pt-12">
                    <div>
                       <span className="block text-4xl font-serif mb-2">100%</span>
                       <span className="text-[10px] uppercase tracking-widest text-muted">Bespoke Solutions</span>
+                   </div>
+                   <div>
+                      <span className="block text-4xl font-serif mb-2">Level 1</span>
+                      <span className="text-[10px] uppercase tracking-widest text-muted">B-BBEE Contributor</span>
                    </div>
                    <div>
                       <span className="block text-4xl font-serif mb-2">Impact</span>
