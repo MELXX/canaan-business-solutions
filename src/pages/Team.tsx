@@ -23,10 +23,9 @@ export const Team = () => {
               className="aspect-[3/4] bg-ink/5 border border-ink/10 relative overflow-hidden"
             >
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200" 
+                src="/team/oyena.jpg" 
                 alt="Oyena Dyasi" 
                 className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-1000"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-10 left-10 text-cream">
                  <h2 className="text-3xl font-serif italic">Oyena Dyasi</h2>
@@ -119,17 +118,75 @@ export const Team = () => {
             </motion.div>
           </div>
 
-          {/* Other Roles placeholders */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-ink/5 pt-32">
+          {/* Phumlani Mancapha */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start mb-40">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="aspect-[3/4] bg-ink/5 border border-ink/10 relative overflow-hidden"
+            >
+              <img 
+                src="/team/phumlani.jpg" 
+                alt="Phumlani Mancapha" 
+                className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-1000"
+              />
+              <div className="absolute bottom-10 left-10 text-cream">
+                 <h2 className="text-3xl font-serif italic">Phumlani Mancapha</h2>
+                 <span className="text-[10px] uppercase tracking-widest opacity-60">Commercial Strategy & Leadership</span>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="space-y-8"
+            >
+              <div className="space-y-4">
+                 <h3 className="text-4xl font-serif">Commercial Strategy & Leadership</h3>
+                 <p className="text-muted leading-relaxed font-light text-lg italic">
+                    Driving sustainable sales growth across the African healthcare ecosystem
+                 </p>
+              </div>
+
+              <div className="prose prose-ink max-w-none space-y-6 text-muted font-light text-base leading-relaxed">
+                <p>
+                  Phumlani Mancapha is a seasoned commercial leader with nearly two decades of experience driving sustainable sales growth across the pharmaceutical and healthcare ecosystem in Africa. His career spans frontline sales, national sales leadership, and executive roles within multinational organisations, where he has led complex portfolios across private and public healthcare markets.
+                </p>
+                <p>
+                  Most recently, Phumlani served as Biopharma Business Unit Director for AstraZeneca within the African Cluster, where he led multi-market teams through periods of restructuring, regulatory pressure, patent loss, and constrained resources, while consistently delivering growth, defending market share, and launching new therapies at scale.
+                </p>
+                <p>
+                  His leadership is recognised for transforming sales cultures, strengthening execution discipline, and unlocking performance in highly regulated, resource-constrained environments.
+                </p>
+              </div>
+
+              <div className="flex gap-4 pt-4 border-t border-ink/5">
+                 <a href="#" className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold hover:text-forest transition-colors">
+                    <Linkedin size={16} /> LinkedIn Profile
+                 </a>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Other Team Members */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 border-t border-ink/5 pt-32">
              {[
-               { title: "Associate Director", name: "[Position Open]" },
-               { title: "Accountant", name: "[Professional]" },
-               { title: "Executive Assistant", name: "[Administrative Support]" }
+               { title: "Group Financial Accountant", name: "Phelisa Dyasi", img: "/team/phelisa.png" },
+               { title: "Executive Assistant to Managing Director", name: "Siphosethu Gushman", img: "/team/siphosethu.jpg" },
+               { title: "Internal Audit Specialist", name: "Thabang Nawa", img: null },
              ].map((role, i) => (
-               <div key={i} className="space-y-6">
+               <div key={i} className="space-y-6 group cursor-pointer">
                   <span className="text-[10px] uppercase tracking-widest text-forest font-bold">{role.title}</span>
-                  <div className="aspect-[4/3] bg-ink/5 border border-ink/5 flex items-center justify-center italic text-muted text-sm">
-                     Bio Placeholder
+                  <div className="aspect-[4/3] bg-ink/5 border border-ink/5 overflow-hidden flex items-center justify-center relative">
+                     {role.img ? (
+                       <img 
+                         src={role.img} 
+                         alt={role.name} 
+                         className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" 
+                       />
+                     ) : (
+                       <div className="text-muted text-sm italic">Image Placeholder</div>
+                     )}
                   </div>
                   <h4 className="text-xl font-serif font-medium">{role.name}</h4>
                </div>
