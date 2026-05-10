@@ -30,8 +30,8 @@ export const Home = () => {
     <div className="pt-20">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center relative px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,79,46,0.05)_0%,transparent_50%)]" />
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,79,46,0.05)_0%,transparent_50%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -155,7 +155,7 @@ export const Home = () => {
             <div className="relative">
                 <div className="aspect-video bg-ink/5 border border-ink/10 relative overflow-hidden">
                     <img 
-                      src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200" 
+                      src="/boardroom.png"
                       alt="Strategy Meeting" 
                       className="w-full h-full object-cover scale-110 grayscale" 
                       referrerPolicy="no-referrer"

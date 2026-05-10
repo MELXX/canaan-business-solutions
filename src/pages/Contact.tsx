@@ -20,7 +20,7 @@ export const Contact = () => {
             </motion.div>
 
             <div className="space-y-10">
-              <div className="flex gap-6 items-start">
+              {/* <div className="flex gap-6 items-start">
                 <div className="w-12 h-12 border border-ink/10 flex items-center justify-center shrink-0">
                   <Phone size={20} className="text-forest" />
                 </div>
@@ -28,7 +28,7 @@ export const Contact = () => {
                   <h4 className="font-serif text-lg mb-1">Phone</h4>
                   <p className="text-muted">078 576 3209</p>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex gap-6 items-start">
                 <div className="w-12 h-12 border border-ink/10 flex items-center justify-center shrink-0">

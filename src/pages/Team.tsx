@@ -58,11 +58,8 @@ export const Team = () => {
               </div>
 
               <div className="flex gap-4 pt-4 border-t border-ink/5">
-                 <a href="#" className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold hover:text-forest transition-colors">
+                 <a href="https://www.linkedin.com/in/oyena-dyasi-ca-sa-152402156/" target="_blank" className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold hover:text-forest transition-colors">
                     <Linkedin size={16} /> LinkedIn Profile
-                 </a>
-                 <a href="#" className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold hover:text-forest transition-colors">
-                    <Mail size={16} /> Contact Oyena
                  </a>
               </div>
             </motion.div>
@@ -94,11 +91,7 @@ export const Team = () => {
                 </p>
               </div>
 
-              <div className="flex gap-4 pt-4 border-t border-ink/5">
-                 <a href="#" className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold hover:text-forest transition-colors">
-                    <Linkedin size={16} /> LinkedIn Profile
-                 </a>
-              </div>
+              
             </motion.div>
 
             <motion.div 
@@ -159,39 +152,8 @@ export const Team = () => {
                   His leadership is recognised for transforming sales cultures, strengthening execution discipline, and unlocking performance in highly regulated, resource-constrained environments.
                 </p>
               </div>
-
-              <div className="flex gap-4 pt-4 border-t border-ink/5">
-                 <a href="#" className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold hover:text-forest transition-colors">
-                    <Linkedin size={16} /> LinkedIn Profile
-                 </a>
-              </div>
             </motion.div>
-          </div>
-
-          {/* Other Team Members */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 border-t border-ink/5 pt-32">
-             {[
-               { title: "Group Financial Accountant", name: "Phelisa Dyasi", img: "/team/phelisa.png" },
-               { title: "Executive Assistant to Managing Director", name: "Siphosethu Gushman", img: "/team/siphosethu.jpg" },
-               { title: "Internal Audit Specialist", name: "Thabang Nawa", img: null },
-             ].map((role, i) => (
-               <div key={i} className="space-y-6 group cursor-pointer">
-                  <span className="text-[10px] uppercase tracking-widest text-forest font-bold">{role.title}</span>
-                  <div className="aspect-[4/3] bg-ink/5 border border-ink/5 overflow-hidden flex items-center justify-center relative">
-                     {role.img ? (
-                       <img 
-                         src={role.img} 
-                         alt={role.name} 
-                         className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" 
-                       />
-                     ) : (
-                       <div className="text-muted text-sm italic">Image Placeholder</div>
-                     )}
-                  </div>
-                  <h4 className="text-xl font-serif font-medium">{role.name}</h4>
-               </div>
-             ))}
-          </div>
+          </div>          
         </div>
       </section>
 
