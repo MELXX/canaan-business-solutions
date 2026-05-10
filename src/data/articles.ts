@@ -62,7 +62,7 @@ export const articles: Article[] = [
     title: "Reporting Frameworks for Sustainable Scale",
     date: "March 2026",
     preview: "Effective data strategy is the foundation of transparency and trust with global investors.",
-    img: "https://images.unsplash.com/photo-1454165833767-02a6ed8a687a?auto=format&fit=crop&q=80&w=800",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
     content: [
       "As businesses grow, reporting becomes more important. It is no longer enough to know that the business is making money. Leaders, investors, and stakeholders need clear, structured, and reliable information.",
       "Studies show that over 70 percent of businesses lack consistent reporting processes, which affects decision making and investor confidence.",

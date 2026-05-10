@@ -22,8 +22,8 @@ export const Services = () => {
       items: [
         "Start-up end-to-end process implementation",
         "Compliance & risk assessments",
-        "Reporting framework development",
-        "CFO-as-a-Service",
+        "Process automation & Digital transformation",
+        "IT Audit Solutions",
         "Strategic growth advisory"
       ]
     },
