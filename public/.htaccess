@@ -1,9 +1,9 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  # Ensure HTTPS is NOT forced
-  RewriteCond %{HTTPS} on
-  RewriteRule ^ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   # If the requested file is index.html, stop here
   RewriteRule ^index\.html$ - [L]
   
