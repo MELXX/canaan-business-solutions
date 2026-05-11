@@ -1,7 +1,47 @@
 import { motion } from "motion/react";
 import { Mail, Phone, Instagram, Linkedin, MapPin, Send } from "lucide-react";
+import { useState } from "react";
 
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    enquiry: "Financial Strategy",
+    message: ""
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/contact.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.status === "success") {
+        setStatus("success");
+        setFormData({ name: "", email: "", enquiry: "Financial Strategy", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setErrorMessage(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage("Failed to send message. Please try again later.");
+    }
+  };
+
   return (
     <div className="pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-6">
@@ -67,11 +107,14 @@ export const Contact = () => {
             className="bg-ink p-12 text-cream"
           >
             <h2 className="text-3xl font-serif mb-8">Send an Enquiry</h2>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <label className="text-[10px] uppercase tracking-widest opacity-60">Full Name</label>
                 <input 
                   type="text" 
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  required
                   placeholder="Your Name" 
                   className="w-full bg-cream/5 border border-cream/10 p-4 focus:border-forest outline-none transition-colors"
                 />
@@ -80,13 +123,20 @@ export const Contact = () => {
                 <label className="text-[10px] uppercase tracking-widest opacity-60">Email Address</label>
                 <input 
                   type="email" 
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  required
                   placeholder="name@company.com" 
                   className="w-full bg-cream/5 border border-cream/10 p-4 focus:border-forest outline-none transition-colors"
                 />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] uppercase tracking-widest opacity-60">Nature of Enquiry</label>
-                <select className="w-full bg-cream/5 border border-cream/10 p-4 focus:border-forest outline-none transition-colors appearance-none text-cream/60">
+                <select 
+                  value={formData.enquiry}
+                  onChange={(e) => setFormData({...formData, enquiry: e.target.value})}
+                  className="w-full bg-cream/5 border border-cream/10 p-4 focus:border-forest outline-none transition-colors appearance-none text-cream/60"
+                >
                    <option>Financial Strategy</option>
                    <option>Business Advisory</option>
                    <option>ESG Investing</option>
@@ -97,15 +147,31 @@ export const Contact = () => {
                 <label className="text-[10px] uppercase tracking-widest opacity-60">Your Message</label>
                 <textarea 
                   rows={4}
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
                   placeholder="How can we help?" 
                   className="w-full bg-cream/5 border border-cream/10 p-4 focus:border-forest outline-none transition-colors"
                 />
               </div>
+
+              {status === "success" && (
+                <div className="p-4 bg-forest/20 text-cream border border-forest/50 text-sm">
+                  Thank you! Your message has been sent successfully.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="p-4 bg-red-500/20 text-cream border border-red-500/50 text-sm">
+                  {errorMessage}
+                </div>
+              )}
+
               <button 
                 type="submit"
-                className="w-full bg-cream text-ink p-4 font-bold uppercase tracking-widest hover:bg-forest hover:text-cream transition-all flex items-center justify-center gap-3"
+                disabled={status === "loading"}
+                className="w-full bg-cream text-ink p-4 font-bold uppercase tracking-widest hover:bg-forest hover:text-cream transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit Enquiry <Send size={18} />
+                {status === "loading" ? "Sending..." : "Submit Enquiry"} <Send size={18} />
               </button>
             </form>
           </motion.div>
