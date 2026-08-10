@@ -104,9 +104,9 @@ export const Contact = () => {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="bg-ink p-12 text-cream"
+            className="bg-cream border border-forest p-12 text-ink"
           >
-            <h2 className="text-3xl font-serif mb-8">Send an Enquiry</h2>
+            <h2 className="text-3xl font-serif mb-8 text-forest">Send an Enquiry</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <label className="text-[10px] uppercase tracking-widest opacity-60">Full Name</label>
@@ -116,7 +116,7 @@ export const Contact = () => {
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   required
                   placeholder="Your Name" 
-                  className="w-full bg-cream/5 border border-cream/10 p-4 focus:border-forest outline-none transition-colors"
+                  className="w-full bg-cream border border-forest p-4 focus:ring-2 focus:ring-forest outline-none transition-colors text-ink placeholder:text-ink/40"
                 />
               </div>
               <div className="space-y-2">
@@ -127,7 +127,7 @@ export const Contact = () => {
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   required
                   placeholder="name@company.com" 
-                  className="w-full bg-cream/5 border border-cream/10 p-4 focus:border-forest outline-none transition-colors"
+                  className="w-full bg-cream border border-forest p-4 focus:ring-2 focus:ring-forest outline-none transition-colors text-ink placeholder:text-ink/40"
                 />
               </div>
               <div className="space-y-2">
@@ -135,12 +135,12 @@ export const Contact = () => {
                 <select 
                   value={formData.enquiry}
                   onChange={(e) => setFormData({...formData, enquiry: e.target.value})}
-                  className="w-full bg-cream/5 border border-cream/10 p-4 focus:border-forest outline-none transition-colors appearance-none text-cream/60"
+                  className="w-full bg-cream border border-forest p-4 focus:ring-2 focus:ring-forest outline-none transition-colors appearance-none text-ink"
                 >
-                   <option>Financial Strategy</option>
-                   <option>Business Advisory</option>
-                   <option>ESG Investing</option>
-                   <option>Other</option>
+                   <option value="Financial Strategy">Financial Strategy</option>
+                   <option value="Business Advisory">Business Advisory</option>
+                   <option value="ESG Investing">ESG Investing</option>
+                   <option value="Other">Other</option>
                 </select>
               </div>
               <div className="space-y-2">
@@ -151,17 +151,17 @@ export const Contact = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   placeholder="How can we help?" 
-                  className="w-full bg-cream/5 border border-cream/10 p-4 focus:border-forest outline-none transition-colors"
+                  className="w-full bg-cream border border-forest p-4 focus:ring-2 focus:ring-forest outline-none transition-colors text-ink placeholder:text-ink/40"
                 />
               </div>
 
               {status === "success" && (
-                <div className="p-4 bg-forest/20 text-cream border border-forest/50 text-sm">
+                <div className="p-4 bg-forest/10 text-forest border border-forest/50 text-sm font-medium">
                   Thank you! Your message has been sent successfully.
                 </div>
               )}
               {status === "error" && (
-                <div className="p-4 bg-red-500/20 text-cream border border-red-500/50 text-sm">
+                <div className="p-4 bg-red-50 text-red-600 border border-red-200 text-sm font-medium">
                   {errorMessage}
                 </div>
               )}
@@ -169,7 +169,7 @@ export const Contact = () => {
               <button 
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full bg-cream text-ink p-4 font-bold uppercase tracking-widest hover:bg-forest hover:text-cream transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-forest text-cream p-4 font-bold uppercase tracking-widest hover:bg-ink hover:text-cream transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === "loading" ? "Sending..." : "Submit Enquiry"} <Send size={18} />
               </button>
